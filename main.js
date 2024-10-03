@@ -41,12 +41,16 @@ const game = (function (){
     }
 
     function checkStatus(){
-        //Check rows
+        // Check rows
         gameBoard.forEach((row) => {
-            if (checkEquivalence(row[0], row[1], row[2])){
-                
-            }
-        })
+            if(row[0] != BOARD_STATE.EMPTY && 
+                checkEquivalence(row[0], row[1], row[2])){
+                    winningPlayer = row[0];
+                    gameStatus = GAME_STATE.WIN;
+                    return;
+            }});
+
+        // Check Columns
     }
 
     function getPlayerName(){
